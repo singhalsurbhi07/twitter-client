@@ -10,6 +10,9 @@ Taskes Completed:
 
 4. reply on the tweet.
 
+5. Created functionality for retweet as well as favorite but it sometime works and sometimes doesn't.
+
+6. Implemented autolink functionality also but after implementing the same the onclickitem for timelist stopped working.
 
 
 ![alt tag](twitter_surbhi.gif)
