@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp"
+    tools:context="${packageName}.${activityClass}" >
+
+   <EditText
+        android:id="@+id/etReplyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+         android:inputType="textMultiLine"
+        android:ems="10"/>
+
+ 
+ 
+
+   <Button
+       android:id="@+id/btnTweet"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentBottom="true"
+       android:layout_marginLeft="39dp"
+       android:text="Tweet" />
+   <Button
+       android:id="@+id/btnCancel"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentBottom="true"
+       android:layout_marginRight="39dp"
+       android:text="Cancel" />
+
+  
+    
+ </RelativeLayout>
