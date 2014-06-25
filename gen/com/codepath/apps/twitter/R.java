@@ -27,6 +27,7 @@ public final class R {
         public static final int ic_retweet=0x7f020003;
         public static final int ic_star=0x7f020004;
         public static final int ic_start_fav=0x7f020005;
+        public static final int twitter_launcher=0x7f020006;
     }
     public static final class id {
         public static final int action_settings=0x7f080018;

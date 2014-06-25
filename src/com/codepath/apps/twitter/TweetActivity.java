@@ -99,7 +99,8 @@ public class TweetActivity extends Activity {
 
 										@Override
 										public void onSuccess(String out) {
-											Log.d("JSON obj", out);
+
+											Log.d("JSON reply obj", out);
 											Intent intent = new Intent(
 													getApplicationContext(),
 													TimeLineActivity.class);

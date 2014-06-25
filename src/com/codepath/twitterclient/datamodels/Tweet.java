@@ -11,8 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.text.format.DateUtils;
-
 import com.codepath.apps.twitter.TimeLineActivity;
 
 public class Tweet implements Serializable {
@@ -94,6 +92,18 @@ public class Tweet implements Serializable {
 	public int getRetweetCount() {
 		return retweetCount;
 	}
+	public String getRelativeDate(long seconds) {
+		if (seconds < 60) {
+			return String.valueOf(seconds) + "s";
+		} else if (seconds < 3600) {
+			return String.valueOf(seconds / 60) + "m";
+		} else if (seconds < 3600 * 60) {
+			return String.valueOf(seconds / 3600) + "H";
+		} else {
+			return String.valueOf(seconds / 86400) + "D";
+		}
+	}
+
 	public String getRelativeTimeAgo(String rawJsonDate)
 			throws java.text.ParseException {
 		String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
@@ -103,14 +113,11 @@ public class Tweet implements Serializable {
 
 		String relativeDate = "";
 		try {
-			long dateMillis = sf.parse(rawJsonDate).getTime();
-			relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
-					System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS)
-					.toString();
+			return getRelativeDate((System.currentTimeMillis() - sf.parse(
+					rawJsonDate).getTime()) / 1000);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		String[] relativeTimeArray = relativeDate.split(" ");
-		return relativeTimeArray[0] + relativeTimeArray[1].charAt(0);
+		return "";
 	}
 }
