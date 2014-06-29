@@ -135,8 +135,8 @@ public class TweetActivity extends Activity {
 						new AsyncHttpResponseHandler() {
 
 							@Override
-							public void onSuccess(String out) {
-								Log.d("JSON Favorite obj", out);
+							public void onSuccess(int arg0, String out) {
+								Log.d("JSON Favorite obj", out.toString());
 								Intent intent = new Intent(
 										getApplicationContext(),
 										TimeLineActivity.class);
@@ -168,7 +168,8 @@ public class TweetActivity extends Activity {
 										new AsyncHttpResponseHandler() {
 
 											@Override
-											public void onSuccess(String out) {
+											public void onSuccess(int arg0,
+													String out) {
 												Log.d("JSON Retweet obj", out);
 												Intent intent = new Intent(
 														getApplicationContext(),
