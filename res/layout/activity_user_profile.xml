@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+
+   
+   
+    
+    <fragment
+        android:id="@+id/fragmentUserProfile"
+        android:name="com.codepath.apps.twitter.fragments.UserProfileFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        />
+
+     <fragment
+        android:id="@+id/fragmentUserTimeLine"
+        android:name="com.codepath.apps.twitter.fragments.UserTimeLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragmentUserProfile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
+    
+
+</RelativeLayout>

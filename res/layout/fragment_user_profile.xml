@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp" >
+    
+    <ImageView
+            android:id="@+id/ivUserProfPic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvUserProfName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivUserProfPic"
+            android:layout_marginLeft="22dp"
+            android:layout_toRightOf="@+id/ivUserProfPic"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvUserProfTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivUserProfPic"
+            android:layout_alignLeft="@+id/tvUserProfName"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tvUserProfFollowersCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/ivUserProfPic"
+            android:layout_alignParentBottom="true"
+            
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvUserProfFollowersString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvUserProfFollowersCount"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:text="FOLLOWERS" />
+
+        <TextView
+            android:id="@+id/tvUserProfFollowingCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/tvUserProfFollowersString"
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentBottom="true"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvUserProfFollowingString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvUserProfFollowingCount"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:text="FOLLOWINGS" />
+    
+
+</RelativeLayout>
