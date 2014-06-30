@@ -9,5 +9,6 @@
     <string name="title_activity_time_line">TimeLine</string>
     <string name="title_activity_compose">Compose</string>
     <string name="title_activity_tweet">TweetActivity</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
 
 </resources>

@@ -223,7 +223,7 @@ public class TweetActivity extends Activity {
 		RequestParams params = new RequestParams();
 		params.put("since_id", receivedTweet.gettID());
 
-		client.getTimeLine(params, new JsonHttpResponseHandler() {
+		client.getHomeTimeLine(params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONArray obj) {
 				Log.d("JSON Retweets obj", obj.toString());

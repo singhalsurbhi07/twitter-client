@@ -1,6 +1,5 @@
 package com.codepath.apps.twitter;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.twitterclient.datamodels.User;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -60,27 +60,21 @@ public class ComposeActivity extends Activity {
 		client.getUserCredentials(new JsonHttpResponseHandler() {
 
 			@Override
-			public void onSuccess(int arg0, JSONArray response) {
-				super.onSuccess(arg0, response);
-			}
-
-			@Override
 			public void onSuccess(int arg0, JSONObject response) {
 				super.onSuccess(arg0, response);
 				try {
-					tvLoginName.setText(response.getString("name"));
 					tvLoginName.setTypeface(null, Typeface.BOLD);
 					tvLoginHandle.setTextColor(Color.GRAY);
 					tvLoginHandle.setTextSize((float) 10.0);
 					tvLoginName.setTextSize((float) 18.0);
-					tvLoginHandle.setText("@"
-							+ response.getString("screen_name"));
+
+					User user = User.fromJson(response);
+
+					tvLoginName.setText(user.getName());
+					tvLoginHandle.setText("@" + user.getScreenName());
 					ImageLoader loader = ImageLoader.getInstance();
-					loader.displayImage(
-							response.getString("profile_image_url"),
-							ivUserImage);
+					loader.displayImage(user.getUserPic(), ivUserImage);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
