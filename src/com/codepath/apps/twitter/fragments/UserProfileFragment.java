@@ -1,11 +1,7 @@
 package com.codepath.apps.twitter.fragments;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,20 +12,29 @@ import com.codepath.apps.twitter.R;
 import com.codepath.apps.twitter.TwitterApp;
 import com.codepath.apps.twitter.TwitterClient;
 import com.codepath.twitterclient.datamodels.User;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class UserProfileFragment extends Fragment {
 
 	private TwitterClient client;
+	User newUser;
 	TextView userName;
 	TextView userTag;
 	TextView usersFollowersCount;
 	TextView usersFollowingCount;
 	ImageView userPic;
+
+	public static UserProfileFragment newInstance(User user) {
+		UserProfileFragment profile = new UserProfileFragment();
+		Bundle args = new Bundle();
+		args.putSerializable("Profile_Key", user);
+		profile.setArguments(args);
+		return profile;
+	}
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		newUser = (User) getArguments().getSerializable("Profile_Key");
 
 	}
 
@@ -53,28 +58,37 @@ public class UserProfileFragment extends Fragment {
 	}
 
 	public void fillUserDetails() {
-		client.getUserCredentials(new JsonHttpResponseHandler() {
-			@Override
-			public void onSuccess(int arg0, JSONObject response) {
-				super.onSuccess(arg0, response);
-				Log.d("JsonUserProfile", response.toString());
-				try {
-					User user = User.fromJson(response);
-					Log.d("userNanme", user.getName());
-					userName.setText(user.getName());
-					userTag.setText(user.getTag());
-					usersFollowersCount.setText(String.valueOf(user
-							.getFollowersCount()));
-					usersFollowingCount.setText(String.valueOf(user
-							.getFollowingsCount()));
-					ImageLoader loader = ImageLoader.getInstance();
-					loader.displayImage(user.getUserPic(), userPic);
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
+		// client.getUserCredentials(new JsonHttpResponseHandler() {
+		// @Override
+		// public void onSuccess(int arg0, JSONObject response) {
+		// super.onSuccess(arg0, response);
+		// Log.d("JsonUserProfile", response.toString());
+		// try {
+		// User user = User.fromJson(response);
+		// Log.d("userNanme", user.getName());
+		// userName.setText(user.getName());
+		// userTag.setText(user.getTag());
+		// usersFollowersCount.setText(String.valueOf(user
+		// .getFollowersCount()));
+		// usersFollowingCount.setText(String.valueOf(user
+		// .getFollowingsCount()));
+		// ImageLoader loader = ImageLoader.getInstance();
+		// loader.displayImage(user.getUserPic(), userPic);
+		// } catch (JSONException e) {
+		// e.printStackTrace();
+		// }
+		//
+		// }
+		//
+		// });
+		userName.setText(newUser.getName());
+		userTag.setText(newUser.getTag());
+		usersFollowersCount
+				.setText(String.valueOf(newUser.getFollowersCount()));
+		usersFollowingCount
+				.setText(String.valueOf(newUser.getFollowingsCount()));
+		ImageLoader loader = ImageLoader.getInstance();
+		loader.displayImage(newUser.getUserPic(), userPic);
 
-			}
-
-		});
 	}
 }

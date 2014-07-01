@@ -1,25 +1,32 @@
 package com.codepath.apps.twitter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.codepath.apps.twitter.fragments.HomeTimeLine;
 import com.codepath.apps.twitter.fragments.MentionsTimeLine;
 import com.codepath.apps.twitter.tabs.FragmentTabListener;
+import com.codepath.twitterclient.datamodels.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class TimeLineActivity extends FragmentActivity {
 	// private final static String TWEET_FORWARDING_KEY = "tweetKey";
 	public static Long MIN_ELEMENT = Long.MAX_VALUE;
-
+	TwitterClient client;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_time_line);
+		client = TwitterApp.getRestClient();
 		setupTabs();
 
 		// listView.setOnItemClickListener(new OnItemClickListener() {
@@ -63,8 +70,29 @@ public class TimeLineActivity extends FragmentActivity {
 	}
 
 	public void showProfile() {
-		Intent i = new Intent(this, UserProfileActivity.class);
-		startActivity(i);
+		client.getUserCredentials(new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(int arg0, JSONObject response) {
+				super.onSuccess(arg0, response);
+				Log.d("JsonUserProfile", response.toString());
+
+				User user;
+				try {
+					user = User.fromJson(response);
+					Log.d("userNanme", user.getName());
+
+					Intent i = new Intent(getApplicationContext(),
+							UserProfileActivity.class);
+					i.putExtra("Profile_Key", user);
+
+					startActivity(i);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
 	}
 
 	private void setupTabs() {

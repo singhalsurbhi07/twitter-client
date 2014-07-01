@@ -16,12 +16,24 @@ import com.loopj.android.http.RequestParams;
 public class UserTimeLine extends TimeLineFragment {
 
 	private TwitterClient client;
+	String id;
+
+	public static UserTimeLine newInstance(String userID) {
+		UserTimeLine userTimeline = new UserTimeLine();
+		Bundle args = new Bundle();
+		args.putString("UserID", userID);
+		userTimeline.setArguments(args);
+		return userTimeline;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		populateData(null);
+		id = getArguments().getString("UserID");
+		RequestParams params = new RequestParams();
+		params.put("user_id", id);
+		populateData(params);
 
 	}
 

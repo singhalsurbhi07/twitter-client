@@ -2,11 +2,17 @@ package com.codepath.apps.twitter;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.apps.twitter.fragments.UserProfileFragment;
+import com.codepath.apps.twitter.fragments.UserTimeLine;
+import com.codepath.twitterclient.datamodels.User;
+
 public class UserProfileActivity extends FragmentActivity {
 	private TwitterClient client;
+	User user;
 	TextView userName;
 	TextView userTag;
 	TextView usersFollowersCount;
@@ -17,9 +23,18 @@ public class UserProfileActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_profile);
-		// setUpViews();
-		// client = TwitterApp.getRestClient();
-		// fillUserDetails();
+		user = (User) getIntent().getSerializableExtra("Profile_Key");
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		FragmentTransaction timelineft = getSupportFragmentManager()
+				.beginTransaction();
+		UserProfileFragment fragment = UserProfileFragment.newInstance(user);
+		UserTimeLine timelinefragment = UserTimeLine.newInstance(user
+				.getUserID());
+		ft.replace(R.id.fragmentUserProfile, fragment);
+		ft.commit();
+
+		timelineft.replace(R.id.fragmentUserTimeLine, timelinefragment);
+		timelineft.commit();
 	}
 
 	// public void setUpViews() {

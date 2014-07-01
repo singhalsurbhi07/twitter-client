@@ -8,9 +8,8 @@
    
    
     
-    <fragment
+    <FrameLayout
         android:id="@+id/fragmentUserProfile"
-        android:name="com.codepath.apps.twitter.fragments.UserProfileFragment"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
@@ -18,9 +17,8 @@
         android:layout_alignParentTop="true"
         />
 
-     <fragment
+     <FrameLayout
         android:id="@+id/fragmentUserTimeLine"
-        android:name="com.codepath.apps.twitter.fragments.UserTimeLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragmentUserProfile"
@@ -28,6 +26,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         />
+
     
 
 </RelativeLayout>

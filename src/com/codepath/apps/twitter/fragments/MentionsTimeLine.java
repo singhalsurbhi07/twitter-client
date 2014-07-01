@@ -31,10 +31,18 @@ public class MentionsTimeLine extends TimeLineFragment {
 		client.getMentionsTimeLine(params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONArray obj) {
-				Log.d("JSON obj", obj.toString());
+				Log.d("JSON mentions obj", obj.toString());
 				List<Tweet> newTweets = Tweet.fromJsonArray(obj);
 				addAll(newTweets);
 				// adapter.addAll(newTweets);
+			}
+
+			@Override
+			public void onFailure(Throwable arg0, JSONArray arg1) {
+				// TODO Auto-generated method stub
+				System.out.print(arg0);
+				System.out.println(arg1);
+				super.onFailure(arg0, arg1);
 			}
 		});
 
