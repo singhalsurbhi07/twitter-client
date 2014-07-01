@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:onClick="userImageClicked"
+        android:onClick="onImageClicked"
         android:src="@drawable/ic_launcher" />
 
     <TextView

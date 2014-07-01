@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.codepath.apps.twitter.adapters.ListAdapter;
+import com.codepath.apps.twitter.adapters.TweetListAdapter;
 import com.codepath.twitterclient.datamodels.Tweet;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -44,14 +44,14 @@ public class TweetActivity extends Activity {
 	long minID;
 	private TwitterClient client;
 	private ArrayList<Tweet> tweets;
-	ListAdapter adapter;
+	TweetListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tweet);
 		tweets = new ArrayList<Tweet>();
-		adapter = new ListAdapter(this, tweets);
+		adapter = new TweetListAdapter(this, tweets);
 		Intent i = getIntent();
 		receivedTweet = (Tweet) i.getSerializableExtra(TWEET_FORWARDING_KEY);
 		receivedID = Long.parseLong(receivedTweet.gettID());

@@ -41,6 +41,7 @@ public class UserTimeLine extends TimeLineFragment {
 	void populateData(RequestParams params) {
 
 		client = TwitterApp.getRestClient();
+		params.put("user_id", id);
 		client.getUserTimeLine(params, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONArray obj) {

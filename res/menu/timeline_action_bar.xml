@@ -15,6 +15,11 @@
         android:showAsAction="always"
         android:title="Profile">
     </item>
+     <item android:id="@+id/miSearch"
+          android:title="Search"
+          android:icon="@drawable/ic_search"
+          android:showAsAction="ifRoom|collapseActionView"
+          android:actionViewClass="android.widget.SearchView" />
 
 
 </menu>

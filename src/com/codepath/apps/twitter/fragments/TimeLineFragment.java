@@ -3,23 +3,28 @@ package com.codepath.apps.twitter.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.codepath.apps.twitter.EndlessScrollListener;
 import com.codepath.apps.twitter.R;
 import com.codepath.apps.twitter.TimeLineActivity;
-import com.codepath.apps.twitter.adapters.ListAdapter;
+import com.codepath.apps.twitter.TweetActivity;
+import com.codepath.apps.twitter.adapters.TweetListAdapter;
 import com.codepath.twitterclient.datamodels.Tweet;
 import com.loopj.android.http.RequestParams;
 
 public abstract class TimeLineFragment extends Fragment {
+	private final static String TWEET_FORWARDING_KEY = "tweetKey";
 	private List<Tweet> tweets;
-	ListAdapter adapter;
+	TweetListAdapter adapter;
 	ListView listView;
 
 	@Override
@@ -28,7 +33,7 @@ public abstract class TimeLineFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		tweets = new ArrayList<Tweet>();
-		adapter = new ListAdapter(getActivity(), tweets);
+		adapter = new TweetListAdapter(getActivity(), tweets);
 		tweets.clear();
 		adapter.clear();
 	}
@@ -43,7 +48,23 @@ public abstract class TimeLineFragment extends Fragment {
 		listView.setAdapter(adapter);
 
 		setScrollListener();
+		itemClickListener();
 		return view;
+	}
+
+	private void itemClickListener() {
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// Log.d("OnitemClickon list", view.);
+
+				Intent i = new Intent(getActivity(), TweetActivity.class);
+				i.putExtra(TWEET_FORWARDING_KEY, tweets.get(position));
+				startActivity(i);
+			}
+
+		});
 	}
 
 	private void setScrollListener() {

@@ -11,6 +11,9 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
 import com.codepath.apps.twitter.fragments.HomeTimeLine;
 import com.codepath.apps.twitter.fragments.MentionsTimeLine;
@@ -22,12 +25,14 @@ public class TimeLineActivity extends FragmentActivity {
 	// private final static String TWEET_FORWARDING_KEY = "tweetKey";
 	public static Long MIN_ELEMENT = Long.MAX_VALUE;
 	TwitterClient client;
+	MenuItem searchItem;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_time_line);
 		client = TwitterApp.getRestClient();
 		setupTabs();
+		// searchItem = (MenuItem) menu.findItem(R.id.miSearch);
 
 		// listView.setOnItemClickListener(new OnItemClickListener() {
 		// @Override
@@ -42,10 +47,19 @@ public class TimeLineActivity extends FragmentActivity {
 		// });
 	}
 
+	public void onImageClicked(View v) {
+		System.out.println(((User) v.getTag()).getScreenName());
+		User u = (User) v.getTag();
+		Intent i = new Intent(this, UserProfileActivity.class);
+		i.putExtra("Profile_Key", u);
+		startActivity(i);
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.timeline_action_bar, menu);
+		searchItem = menu.findItem(R.id.miSearch);
 		return true;
 	}
 
@@ -59,11 +73,41 @@ public class TimeLineActivity extends FragmentActivity {
 			case R.id.miProfile :
 				showProfile();
 				return true;
+			case R.id.miSearch :
+				Log.d("searchView", "clicked");
+				searchViewClicked();
+				return true;
 			default :
 				return super.onOptionsItemSelected(item);
 		}
 	}
 
+	public void searchViewClicked() {
+		Log.d("searchViewClicked", "entered");
+		SearchView searchView = (SearchView) searchItem.getActionView();
+		if (searchView == null) {
+			Log.d("serachView", "null");
+
+		} else {
+			Log.d("searchview", "not null");
+		}
+		searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				Intent i = new Intent(getApplicationContext(),
+						SearchResultActivity.class);
+				i.putExtra("Query", query);
+				startActivity(i);
+
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				return false;
+			}
+		});
+	}
 	public void composeMessage() {
 		Intent i = new Intent(this, ComposeActivity.class);
 		startActivity(i);

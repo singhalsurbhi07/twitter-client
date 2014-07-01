@@ -10,5 +10,6 @@
     <string name="title_activity_compose">Compose</string>
     <string name="title_activity_tweet">TweetActivity</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_activity_search_result">SearchResultActivity</string>
 
 </resources>
