@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="#33CCFF">>
+
+    <TextView
+        android:id="@+id/tvUserTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/tvUserLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+        android:layout_below="@+id/tvUserTag"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+    
+
+</RelativeLayout>
