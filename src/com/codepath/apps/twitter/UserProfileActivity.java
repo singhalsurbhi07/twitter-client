@@ -1,11 +1,18 @@
 package com.codepath.apps.twitter;
 
+import java.util.List;
+import java.util.Vector;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.apps.twitter.fragments.ProfileTagFragmant;
 import com.codepath.apps.twitter.fragments.UserProfileFragment;
 import com.codepath.apps.twitter.fragments.UserTimeLine;
 import com.codepath.twitterclient.datamodels.User;
@@ -18,58 +25,39 @@ public class UserProfileActivity extends FragmentActivity {
 	TextView usersFollowersCount;
 	TextView usersFollowingCount;
 	ImageView userPic;
+	private PagerAdapter mPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_profile);
+
 		user = (User) getIntent().getSerializableExtra("Profile_Key");
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		initializePager();
+		// FragmentTransaction ft =
+		// getSupportFragmentManager().beginTransaction();
 		FragmentTransaction timelineft = getSupportFragmentManager()
 				.beginTransaction();
-		UserProfileFragment fragment = UserProfileFragment.newInstance(user);
+		// UserProfileFragment fragment = UserProfileFragment.newInstance(user);
 		UserTimeLine timelinefragment = UserTimeLine.newInstance(user
 				.getUserID());
-		ft.replace(R.id.fragmentUserProfile, fragment);
-		ft.commit();
+		// ft.replace(R.id.fragmentUserProfile, fragment);
+		// ft.replace(R.id.pager, fragment);
+		// ft.commit();
 
 		timelineft.replace(R.id.fragmentUserTimeLine, timelinefragment);
 		timelineft.commit();
 	}
 
-	// public void setUpViews() {
-	// userName = (TextView) findViewById(R.id.tvUserProfName);
-	// userTag = (TextView) findViewById(R.id.tvUserProfTag);
-	// usersFollowersCount = (TextView)
-	// findViewById(R.id.tvUserProfFollowersCount);
-	// usersFollowingCount = (TextView)
-	// findViewById(R.id.tvUserProfFollowingCount);
-	// userPic = (ImageView) findViewById(R.id.ivUserProfPic);
-	//
-	// }
+	public void initializePager() {
+		List<Fragment> fragments = new Vector<Fragment>();
+		fragments.add(UserProfileFragment.newInstance(user));
+		fragments.add(ProfileTagFragmant.newInstance(user));
+		mPagerAdapter = new com.codepath.apps.twitter.adapters.PagerAdapter(
+				this.getSupportFragmentManager(), fragments);
+		ViewPager pager = (ViewPager) findViewById(R.id.pager);
+		pager.setAdapter(mPagerAdapter);
 
-	// public void fillUserDetails() {
-	// client.getUserCredentials(new JsonHttpResponseHandler() {
-	// @Override
-	// public void onSuccess(int arg0, JSONObject response) {
-	// super.onSuccess(arg0, response);
-	// try {
-	// User user = User.fromJson(response);
-	// userName.setText(user.getName());
-	// userTag.setText(user.getTag());
-	// usersFollowersCount.setText(String.valueOf(user
-	// .getFollowersCount()));
-	// usersFollowingCount.setText(String.valueOf(user
-	// .getFollowingsCount()));
-	// ImageLoader loader = ImageLoader.getInstance();
-	// loader.displayImage(user.getUserPic(), userPic);
-	// } catch (JSONException e) {
-	// e.printStackTrace();
-	// }
-	//
-	// }
-	//
-	// });
-	// }
+	}
 
 }

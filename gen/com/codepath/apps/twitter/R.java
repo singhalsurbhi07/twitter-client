@@ -12,67 +12,68 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
-
-         Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
-    
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_comment=0x7f020000;
-        public static final int ic_compose=0x7f020001;
-        public static final int ic_home=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int ic_mentions=0x7f020004;
-        public static final int ic_retweet=0x7f020005;
-        public static final int ic_search=0x7f020006;
-        public static final int ic_star=0x7f020007;
-        public static final int ic_start_fav=0x7f020008;
-        public static final int ic_user=0x7f020009;
-        public static final int twitter_launcher=0x7f02000a;
+        public static final int ic_bird=0x7f020000;
+        public static final int ic_comment=0x7f020001;
+        public static final int ic_compose=0x7f020002;
+        public static final int ic_home=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int ic_mentions=0x7f020005;
+        public static final int ic_retweet=0x7f020006;
+        public static final int ic_search=0x7f020007;
+        public static final int ic_star=0x7f020008;
+        public static final int ic_start_fav=0x7f020009;
+        public static final int ic_twitter_bird=0x7f02000a;
+        public static final int ic_user=0x7f02000b;
+        public static final int twitter_launcher=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f080023;
-        public static final int btnCancel=0x7f08001e;
+        public static final int action_settings=0x7f080026;
+        public static final int btnCancel=0x7f080021;
         public static final int btnSaveTweet=0x7f080000;
-        public static final int btnTweet=0x7f08001d;
-        public static final int etReplyText=0x7f08001c;
+        public static final int btnTweet=0x7f080020;
+        public static final int button1=0x7f080005;
+        public static final int etReplyText=0x7f08001f;
         public static final int etTweet=0x7f080004;
-        public static final int flContainer=0x7f080006;
-        public static final int flSearchContainer=0x7f080005;
-        public static final int fragmentUserProfile=0x7f080012;
-        public static final int fragmentUserTimeLine=0x7f080013;
-        public static final int ivFav=0x7f080010;
-        public static final int ivPic=0x7f080007;
-        public static final int ivReply=0x7f08000e;
-        public static final int ivRetweet=0x7f08000f;
+        public static final int flContainer=0x7f080008;
+        public static final int flSearchContainer=0x7f080007;
+        public static final int fragmentUserTimeLine=0x7f080015;
+        public static final int imageView1=0x7f080006;
+        public static final int ivFav=0x7f080012;
+        public static final int ivPic=0x7f080009;
+        public static final int ivReply=0x7f080010;
+        public static final int ivRetweet=0x7f080011;
         public static final int ivUserImage=0x7f080001;
-        public static final int ivUserPic=0x7f08001f;
-        public static final int ivUserProfPic=0x7f080015;
-        public static final int linearLayout1=0x7f08000d;
-        public static final int lvReplies=0x7f080011;
-        public static final int lvTweets=0x7f080014;
-        public static final int miCompose=0x7f080024;
-        public static final int miProfile=0x7f080025;
-        public static final int miSearch=0x7f080026;
-        public static final int tvHandle=0x7f080009;
+        public static final int ivUserPic=0x7f080022;
+        public static final int ivUserProfPic=0x7f080017;
+        public static final int linearLayout1=0x7f08000f;
+        public static final int lvReplies=0x7f080013;
+        public static final int lvTweets=0x7f080016;
+        public static final int miCompose=0x7f080027;
+        public static final int miProfile=0x7f080028;
+        public static final int miSearch=0x7f080029;
+        public static final int pager=0x7f080014;
+        public static final int tvHandle=0x7f08000b;
         public static final int tvLoginHandle=0x7f080003;
         public static final int tvLoginName=0x7f080002;
-        public static final int tvRelativeTime=0x7f080022;
-        public static final int tvScreenName=0x7f080020;
-        public static final int tvText=0x7f08000a;
-        public static final int tvTime=0x7f08000b;
-        public static final int tvTweetStat=0x7f08000c;
-        public static final int tvTweetText=0x7f080021;
-        public static final int tvUserName=0x7f080008;
-        public static final int tvUserProfFollowersCount=0x7f080018;
-        public static final int tvUserProfFollowersString=0x7f080019;
-        public static final int tvUserProfFollowingCount=0x7f08001a;
-        public static final int tvUserProfFollowingString=0x7f08001b;
-        public static final int tvUserProfName=0x7f080016;
-        public static final int tvUserProfTag=0x7f080017;
+        public static final int tvRelativeTime=0x7f080025;
+        public static final int tvScreenName=0x7f080023;
+        public static final int tvText=0x7f08000c;
+        public static final int tvTime=0x7f08000d;
+        public static final int tvTweetStat=0x7f08000e;
+        public static final int tvTweetText=0x7f080024;
+        public static final int tvUserLocation=0x7f08001e;
+        public static final int tvUserName=0x7f08000a;
+        public static final int tvUserProfFollowersCount=0x7f080019;
+        public static final int tvUserProfFollowersString=0x7f08001a;
+        public static final int tvUserProfFollowingCount=0x7f08001b;
+        public static final int tvUserProfFollowingString=0x7f08001c;
+        public static final int tvUserProfName=0x7f080018;
+        public static final int tvUserTag=0x7f08001d;
     }
     public static final class layout {
         public static final int activity_compose=0x7f030000;
@@ -83,8 +84,9 @@ public final class R {
         public static final int activity_user_profile=0x7f030005;
         public static final int fragment_timeline=0x7f030006;
         public static final int fragment_user_profile=0x7f030007;
-        public static final int reply_dialog=0x7f030008;
-        public static final int tweet=0x7f030009;
+        public static final int profile_tag_fragment=0x7f030008;
+        public static final int reply_dialog=0x7f030009;
+        public static final int tweet=0x7f03000a;
     }
     public static final class menu {
         public static final int login=0x7f070000;

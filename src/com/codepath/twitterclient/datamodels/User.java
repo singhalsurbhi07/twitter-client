@@ -13,9 +13,10 @@ public class User implements Serializable {
 	private int followersCount;
 	private int followingsCount;
 	private String tag;
+	private String location;
 
 	public User(String name, String screenName, String userId, String userPic,
-			int followersCount, int followingsCount, String tag) {
+			int followersCount, int followingsCount, String tag, String location) {
 		this.name = name;
 		this.screenName = screenName;
 		this.userID = userId;
@@ -23,6 +24,11 @@ public class User implements Serializable {
 		this.followersCount = followersCount;
 		this.followingsCount = followingsCount;
 		this.tag = tag;
+		this.location = location;
+	}
+
+	public String getLocation() {
+		return location;
 	}
 
 	public int getFollowersCount() {
@@ -45,6 +51,7 @@ public class User implements Serializable {
 		this.followersCount = obj.getInt("followers_count");
 		this.followingsCount = obj.getInt("friends_count");
 		this.tag = obj.getString("description");
+		this.location = obj.getString("location");
 	}
 
 	public static User fromJson(JSONObject obj) throws JSONException {
