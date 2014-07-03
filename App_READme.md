@@ -43,6 +43,7 @@ Tasks Completed:
 The user that wrote the original tweet is automatically "@" replied in compose
 
 10.Advanced: User can click on a tweet to be taken to a "detail view" of that tweet
+
 11.Advanced: User can take favorite (and unfavorite) or reweet actions on a tweet
 
 12.Advanced: Improve the user interface and theme the app to feel twitter branded
