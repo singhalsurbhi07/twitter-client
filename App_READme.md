@@ -50,5 +50,5 @@ The user that wrote the original tweet is automatically "@" replied in compose
 
 13.Advanced: User can search for tweets matching a particular query and see results
 
-![alt tag](assignment4.gif)
+![alt tag](assisnment4.gif)
 
