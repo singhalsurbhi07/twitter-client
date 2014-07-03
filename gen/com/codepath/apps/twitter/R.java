@@ -39,7 +39,7 @@ public final class R {
         public static final int twitter_launcher=0x7f020013;
     }
     public static final class id {
-        public static final int action_settings=0x7f080026;
+        public static final int action_settings=0x7f08002b;
         public static final int btnCancel=0x7f080021;
         public static final int btnSaveTweet=0x7f080000;
         public static final int btnTweet=0x7f080020;
@@ -51,6 +51,9 @@ public final class R {
         public static final int fragmentUserTimeLine=0x7f080015;
         public static final int imageView1=0x7f080006;
         public static final int ivFav=0x7f080012;
+        public static final int ivListReply=0x7f080026;
+        public static final int ivListRetweet=0x7f080027;
+        public static final int ivListfav=0x7f080029;
         public static final int ivPic=0x7f080009;
         public static final int ivReply=0x7f080010;
         public static final int ivRetweet=0x7f080011;
@@ -60,14 +63,16 @@ public final class R {
         public static final int linearLayout1=0x7f08000f;
         public static final int lvReplies=0x7f080013;
         public static final int lvTweets=0x7f080016;
-        public static final int miCompose=0x7f080027;
-        public static final int miProfile=0x7f080028;
-        public static final int miSearch=0x7f080029;
+        public static final int miCompose=0x7f08002c;
+        public static final int miProfile=0x7f08002d;
+        public static final int miSearch=0x7f08002e;
         public static final int pager=0x7f080014;
+        public static final int tvFavData=0x7f08002a;
         public static final int tvHandle=0x7f08000b;
         public static final int tvLoginHandle=0x7f080003;
         public static final int tvLoginName=0x7f080002;
         public static final int tvRelativeTime=0x7f080025;
+        public static final int tvRetweetData=0x7f080028;
         public static final int tvScreenName=0x7f080023;
         public static final int tvText=0x7f08000c;
         public static final int tvTime=0x7f08000d;

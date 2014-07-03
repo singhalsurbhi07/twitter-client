@@ -23,10 +23,14 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 
 	private static class ViewHolder {
 		ImageView userPic;
+		ImageView replypic;
+		ImageView retweetPic;
 		TextView userName;
 		TextView userScreenName;
 		TextView tweetText;
 		TextView relativeTime;
+		TextView retweetCount;
+		TextView favCount;
 		User user;;
 
 	}
@@ -51,6 +55,10 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 
 			viewHolder.userPic = (ImageView) convertView
 					.findViewById(R.id.ivUserPic);
+			viewHolder.replypic = (ImageView) convertView
+					.findViewById(R.id.ivListReply);
+			viewHolder.retweetPic = (ImageView) convertView
+					.findViewById(R.id.ivListRetweet);
 			viewHolder.userName = (TextView) convertView
 					.findViewById(R.id.tvUserName);
 			viewHolder.userScreenName = (TextView) convertView
@@ -59,6 +67,10 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 					.findViewById(R.id.tvTweetText);
 			viewHolder.relativeTime = (TextView) convertView
 					.findViewById(R.id.tvRelativeTime);
+			viewHolder.retweetCount = (TextView) convertView
+					.findViewById(R.id.tvRetweetData);
+			viewHolder.favCount = (TextView) convertView
+					.findViewById(R.id.tvFavData);
 
 			convertView.setTag(viewHolder);
 		} else {
@@ -73,7 +85,13 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 		viewHolder.user = (tweet.getUser());
 		viewHolder.userPic.setTag(viewHolder.user);
 		ImageLoader loader = ImageLoader.getInstance();
+		System.out.println(tweet.getFavCount() + " " + tweet.getRetweetCount());
 		loader.displayImage(tweet.getUser().getUserPic(), viewHolder.userPic);
+		viewHolder.retweetCount
+				.setText(String.valueOf(tweet.getRetweetCount()));
+		viewHolder.favCount.setText(String.valueOf(tweet.getFavCount()));
+		viewHolder.replypic.setTag(tweet);
+		viewHolder.retweetPic.setTag(tweet);
 		try {
 			viewHolder.relativeTime.setText(tweet.getRelativeTimeAgo(tweet
 					.getCreatedAt()));

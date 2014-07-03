@@ -5,6 +5,9 @@ import org.json.JSONObject;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,13 +15,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
+import android.widget.Toast;
 
 import com.codepath.apps.twitter.fragments.HomeTimeLine;
 import com.codepath.apps.twitter.fragments.MentionsTimeLine;
 import com.codepath.apps.twitter.tabs.FragmentTabListener;
+import com.codepath.twitterclient.datamodels.Tweet;
 import com.codepath.twitterclient.datamodels.User;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class TimeLineActivity extends FragmentActivity {
@@ -142,6 +151,105 @@ public class TimeLineActivity extends FragmentActivity {
 
 			}
 		});
+	}
+
+	public void sendReply(View v) {
+		final Tweet receivedTweet = (Tweet) v.getTag();
+
+		final Dialog d = new Dialog(TimeLineActivity.this);
+		d.setTitle("Enter the tweet");
+		d.setContentView(R.layout.reply_dialog);
+		Button b1 = (Button) d.findViewById(R.id.btnTweet);
+		Button b2 = (Button) d.findViewById(R.id.btnCancel);
+
+		b1.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Log.d("TweetActivity",
+				// tweetText.getText().toString());
+				EditText replyText = (EditText) d
+						.findViewById(R.id.etReplyText);
+				Log.d("TweetActivity", replyText.getText().toString());
+				if (replyText.getText().toString().length() > 0) {
+					client.postTweet("@"
+							+ receivedTweet.getUser().getScreenName() + " "
+							+ replyText.getText().toString(),
+							receivedTweet.gettID(),
+							new AsyncHttpResponseHandler() {
+
+								@Override
+								public void onSuccess(String out) {
+
+									Log.d("JSON reply obj", out);
+									Intent intent = new Intent(
+											getApplicationContext(),
+											TimeLineActivity.class);
+									startActivity(intent);
+								}
+							});
+				}
+			}
+		});
+		b2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// selectedType = "all";
+
+				d.dismiss();
+				// tvSelectedType.setText(selectedType);
+			}
+		});
+
+		d.show();
+
+	}
+
+	public void sendRetweet(View v) {
+		final Tweet receivedTweet = (Tweet) v.getTag();
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(
+				TimeLineActivity.this);
+		// Set a title
+		builder.setTitle("Retweet");
+		// Set a message
+		builder.setMessage("Are you sure you want to retweet?");
+
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				client.postReTweet(receivedTweet.gettID(),
+						new AsyncHttpResponseHandler() {
+
+							@Override
+							public void onSuccess(int arg0, String out) {
+								Log.d("JSON Retweet obj", out);
+								Intent intent = new Intent(
+										getApplicationContext(),
+										TimeLineActivity.class);
+								startActivity(intent);
+							}
+						});
+				Toast.makeText(getApplicationContext(), "Retweeted",
+						Toast.LENGTH_LONG).show();
+
+			}
+		});
+		builder.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						dialog.cancel();
+					}
+				});
+		// Create the dialog
+		AlertDialog alertdialog = builder.create();
+
+		// show the alertdia
+		alertdialog.show();
+
 	}
 
 	private void setupTabs() {

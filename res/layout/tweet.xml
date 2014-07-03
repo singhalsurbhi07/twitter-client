@@ -53,5 +53,53 @@
         android:layout_alignBottom="@+id/tvUserName"
         android:textSize="12sp"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivListReply"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/tvTweetText"
+        android:layout_below="@+id/tvTweetText"
+        android:onClick="sendReply"
+        android:src="@drawable/ic_comment" />
+    
+   
+
+    <ImageView
+        android:id="@+id/ivListRetweet"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toRightOf="@+id/ivListReply"
+        android:layout_marginLeft="80dp"
+        android:onClick="sendRetweet"
+        android:layout_below="@+id/tvTweetText"
+        android:src="@drawable/ic_retweet" />
+    <TextView
+        android:id="@+id/tvRetweetData"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tvTweetText"
+        android:layout_toRightOf="@+id/ivListRetweet"
+        android:text="T" />
+
+    <ImageView
+        android:id="@+id/ivListfav"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toRightOf="@+id/ivListRetweet"
+        android:layout_marginLeft="80dp"
+        android:onClick="sendFav"
+        android:layout_below="@+id/tvTweetText"
+        android:src="@drawable/ic_star" />
+    <TextView
+        android:id="@+id/tvFavData"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tvTweetText"
+       
+        android:layout_toRightOf="@+id/ivListfav"
+        android:text="T" />
+
+    
     
 </RelativeLayout>
