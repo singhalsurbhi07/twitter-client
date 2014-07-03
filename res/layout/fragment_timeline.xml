@@ -7,7 +7,7 @@
         android:id="@+id/lvTweets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:divider="#33CCFF" 
-        android:dividerHeight="4px"
+         android:divider="#4099FF" 
+        android:dividerHeight="2px"
         />
 </LinearLayout>

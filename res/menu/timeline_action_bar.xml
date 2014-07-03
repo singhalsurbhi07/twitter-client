@@ -4,20 +4,20 @@
     
     <item
         android:id="@+id/miCompose"
-        android:icon="@drawable/ic_compose"
+        android:icon="@drawable/ic_neww_compose"
         android:showAsAction="always"
         android:title="Compose">
     </item>
     
     <item
         android:id="@+id/miProfile"
-        android:icon="@drawable/ic_user"
+        android:icon="@drawable/ic_new_user"
         android:showAsAction="always"
         android:title="Profile">
     </item>
      <item android:id="@+id/miSearch"
           android:title="Search"
-          android:icon="@drawable/ic_search"
+          android:icon="@drawable/ic_new_search"
           android:showAsAction="ifRoom|collapseActionView"
           android:actionViewClass="android.widget.SearchView" />
 

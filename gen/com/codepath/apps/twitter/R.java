@@ -23,13 +23,20 @@ public final class R {
         public static final int ic_home=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int ic_mentions=0x7f020005;
-        public static final int ic_retweet=0x7f020006;
-        public static final int ic_search=0x7f020007;
-        public static final int ic_star=0x7f020008;
-        public static final int ic_start_fav=0x7f020009;
-        public static final int ic_twitter_bird=0x7f02000a;
-        public static final int ic_user=0x7f02000b;
-        public static final int twitter_launcher=0x7f02000c;
+        public static final int ic_new_compose=0x7f020006;
+        public static final int ic_new_search=0x7f020007;
+        public static final int ic_new_user=0x7f020008;
+        public static final int ic_neww_compose=0x7f020009;
+        public static final int ic_retweet=0x7f02000a;
+        public static final int ic_search=0x7f02000b;
+        public static final int ic_star=0x7f02000c;
+        public static final int ic_start_fav=0x7f02000d;
+        public static final int ic_tweet_button=0x7f02000e;
+        public static final int ic_tweet_button1=0x7f02000f;
+        public static final int ic_tweetbutton=0x7f020010;
+        public static final int ic_twitter_bird=0x7f020011;
+        public static final int ic_user=0x7f020012;
+        public static final int twitter_launcher=0x7f020013;
     }
     public static final class id {
         public static final int action_settings=0x7f080026;
@@ -116,11 +123,6 @@ public final class R {
             backward-compatibility can go here.
         
 
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
         Base application theme for API 14+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
@@ -132,5 +134,18 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int MyActionBar=0x7f060003;
+        /**      <style name="MyActionBarTitleText" 
+            parent="@style/TextAppearance.AppCompat.widget.ActionBar.Title"> 
+         <item name="android:textColor">#FFFFFF</item> 
+     </style> 
+         */
+        public static final int MyActionBarTabTextStyle=0x7f060004;
+        /** 
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+         */
+        public static final int MyTheme=0x7f060002;
     }
 }

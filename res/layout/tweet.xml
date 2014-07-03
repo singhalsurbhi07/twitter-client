@@ -53,4 +53,5 @@
         android:layout_alignBottom="@+id/tvUserName"
         android:textSize="12sp"
         android:text="TextView" />
+    
 </RelativeLayout>

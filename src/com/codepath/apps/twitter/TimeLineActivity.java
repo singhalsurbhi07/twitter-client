@@ -32,6 +32,11 @@ public class TimeLineActivity extends FragmentActivity {
 		setContentView(R.layout.activity_time_line);
 		client = TwitterApp.getRestClient();
 		setupTabs();
+		ActionBar actionBar = getActionBar();
+		String title = (String) actionBar.getTitle();
+		actionBar.setIcon(R.drawable.ic_bird);
+		actionBar.setDisplayShowTitleEnabled(false);
+
 		// searchItem = (MenuItem) menu.findItem(R.id.miSearch);
 
 		// listView.setOnItemClickListener(new OnItemClickListener() {
