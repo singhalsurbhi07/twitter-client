@@ -3,6 +3,7 @@ package com.codepath.apps.twitter;
 import java.util.List;
 import java.util.Vector;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -33,18 +34,15 @@ public class UserProfileActivity extends FragmentActivity {
 		setContentView(R.layout.activity_user_profile);
 
 		user = (User) getIntent().getSerializableExtra("Profile_Key");
+		ActionBar actionBar = getActionBar();
+		actionBar.setIcon(R.drawable.ic_bird);
+		String title = user.getName();
+		actionBar.setTitle(title);
 		initializePager();
-		// FragmentTransaction ft =
-		// getSupportFragmentManager().beginTransaction();
 		FragmentTransaction timelineft = getSupportFragmentManager()
 				.beginTransaction();
-		// UserProfileFragment fragment = UserProfileFragment.newInstance(user);
 		UserTimeLine timelinefragment = UserTimeLine.newInstance(user
 				.getUserID());
-		// ft.replace(R.id.fragmentUserProfile, fragment);
-		// ft.replace(R.id.pager, fragment);
-		// ft.commit();
-
 		timelineft.replace(R.id.fragmentUserTimeLine, timelinefragment);
 		timelineft.commit();
 	}

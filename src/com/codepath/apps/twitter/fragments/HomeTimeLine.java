@@ -18,7 +18,6 @@ public class HomeTimeLine extends TimeLineFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		populateData(null);
 
@@ -33,7 +32,6 @@ public class HomeTimeLine extends TimeLineFragment {
 				Log.d("JSON obj", obj.toString());
 				List<Tweet> newTweets = Tweet.fromJsonArray(obj);
 				addAll(newTweets);
-				// adapter.addAll(newTweets);
 			}
 		});
 	}

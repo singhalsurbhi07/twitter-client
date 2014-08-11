@@ -85,8 +85,6 @@ public class TweetActivity extends Activity {
 				b1.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						// Log.d("TweetActivity",
-						// tweetText.getText().toString());
 						EditText replyText = (EditText) d
 								.findViewById(R.id.etReplyText);
 						Log.d("TweetActivity", replyText.getText().toString());
@@ -113,10 +111,7 @@ public class TweetActivity extends Activity {
 				b2.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						// selectedType = "all";
-
 						d.dismiss();
-						// tvSelectedType.setText(selectedType);
 					}
 				});
 
@@ -134,15 +129,15 @@ public class TweetActivity extends Activity {
 				client.postFavorite(receivedTweet.gettID(),
 						new AsyncHttpResponseHandler() {
 
-							@Override
-							public void onSuccess(int arg0, String out) {
-								Log.d("JSON Favorite obj", out.toString());
-								Intent intent = new Intent(
-										getApplicationContext(),
-										TimeLineActivity.class);
-								startActivity(intent);
-							}
-						});
+					@Override
+					public void onSuccess(int arg0, String out) {
+						Log.d("JSON Favorite obj", out.toString());
+						Intent intent = new Intent(
+								getApplicationContext(),
+								TimeLineActivity.class);
+						startActivity(intent);
+					}
+				});
 
 			}
 		});
@@ -161,37 +156,37 @@ public class TweetActivity extends Activity {
 				builder.setPositiveButton("OK",
 						new DialogInterface.OnClickListener() {
 
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						client.postReTweet(receivedTweet.gettID(),
+								new AsyncHttpResponseHandler() {
+
 							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								client.postReTweet(receivedTweet.gettID(),
-										new AsyncHttpResponseHandler() {
-
-											@Override
-											public void onSuccess(int arg0,
-													String out) {
-												Log.d("JSON Retweet obj", out);
-												Intent intent = new Intent(
-														getApplicationContext(),
-														TimeLineActivity.class);
-												startActivity(intent);
-											}
-										});
-								Toast.makeText(getApplicationContext(),
-										"Retweeted", Toast.LENGTH_LONG).show();
-
+							public void onSuccess(int arg0,
+									String out) {
+								Log.d("JSON Retweet obj", out);
+								Intent intent = new Intent(
+										getApplicationContext(),
+										TimeLineActivity.class);
+								startActivity(intent);
 							}
 						});
+						Toast.makeText(getApplicationContext(),
+								"Retweeted", Toast.LENGTH_LONG).show();
+
+					}
+				});
 				builder.setNegativeButton("Cancel",
 						new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								// TODO Auto-generated method stub
-								dialog.cancel();
-							}
-						});
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						// TODO Auto-generated method stub
+						dialog.cancel();
+					}
+				});
 				// Create the dialog
 				AlertDialog alertdialog = builder.create();
 
@@ -213,7 +208,6 @@ public class TweetActivity extends Activity {
 		reTweet = (ImageView) findViewById(R.id.ivRetweet);
 		userPic = (ImageView) findViewById(R.id.ivPic);
 		ivFav = (ImageView) findViewById(R.id.ivFav);
-		// tweetText = (EditText) findViewById(R.id.etReply);
 
 	}
 

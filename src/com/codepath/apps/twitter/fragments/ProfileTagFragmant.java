@@ -17,7 +17,6 @@ public class ProfileTagFragmant extends Fragment {
 	TextView userlocation;
 
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		newUser = (User) getArguments().getSerializable("Profile_Key");
 

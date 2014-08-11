@@ -30,7 +30,6 @@ public class UserProfileFragment extends Fragment {
 		return profile;
 	}
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		newUser = (User) getArguments().getSerializable("Profile_Key");
 
@@ -42,7 +41,6 @@ public class UserProfileFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_user_profile, container,
 				false);
 		userName = (TextView) view.findViewById(R.id.tvUserProfName);
-		// userTag = (TextView) view.findViewById(R.id.tvUserProfTag);
 		usersFollowersCount = (TextView) view
 				.findViewById(R.id.tvUserProfFollowersCount);
 		usersFollowingCount = (TextView) view
@@ -58,7 +56,6 @@ public class UserProfileFragment extends Fragment {
 
 		userName.setText(newUser.getName());
 		userName.setTypeface(null, Typeface.BOLD);
-		// userTag.setText(newUser.getTag());
 		usersFollowersCount
 				.setText(String.valueOf(newUser.getFollowersCount()));
 		usersFollowingCount

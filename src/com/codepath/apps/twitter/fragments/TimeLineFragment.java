@@ -29,9 +29,7 @@ public abstract class TimeLineFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-
 		tweets = new ArrayList<Tweet>();
 		adapter = new TweetListAdapter(getActivity(), tweets);
 		tweets.clear();
@@ -57,8 +55,6 @@ public abstract class TimeLineFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// Log.d("OnitemClickon list", view.);
-
 				Intent i = new Intent(getActivity(), TweetActivity.class);
 				i.putExtra(TWEET_FORWARDING_KEY, tweets.get(position));
 				startActivity(i);

@@ -23,20 +23,16 @@ public final class R {
         public static final int ic_home=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int ic_mentions=0x7f020005;
-        public static final int ic_new_compose=0x7f020006;
-        public static final int ic_new_search=0x7f020007;
-        public static final int ic_new_user=0x7f020008;
-        public static final int ic_neww_compose=0x7f020009;
-        public static final int ic_retweet=0x7f02000a;
-        public static final int ic_search=0x7f02000b;
-        public static final int ic_star=0x7f02000c;
-        public static final int ic_start_fav=0x7f02000d;
-        public static final int ic_tweet_button=0x7f02000e;
-        public static final int ic_tweet_button1=0x7f02000f;
-        public static final int ic_tweetbutton=0x7f020010;
-        public static final int ic_twitter_bird=0x7f020011;
-        public static final int ic_user=0x7f020012;
-        public static final int twitter_launcher=0x7f020013;
+        public static final int ic_new_search=0x7f020006;
+        public static final int ic_new_user=0x7f020007;
+        public static final int ic_neww_compose=0x7f020008;
+        public static final int ic_retweet=0x7f020009;
+        public static final int ic_search=0x7f02000a;
+        public static final int ic_star=0x7f02000b;
+        public static final int ic_start_fav=0x7f02000c;
+        public static final int ic_tweetbutton=0x7f02000d;
+        public static final int ic_user=0x7f02000e;
+        public static final int twitter_launcher=0x7f02000f;
     }
     public static final class id {
         public static final int action_settings=0x7f08002b;

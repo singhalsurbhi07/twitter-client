@@ -76,10 +76,9 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		// Populate the data into the template view using the data object
 		viewHolder.userName.setText(tweet.getUser().getName());
 		viewHolder.userScreenName
-				.setText("@" + tweet.getUser().getScreenName());
+		.setText("@" + tweet.getUser().getScreenName());
 		viewHolder.tweetText.setText(tweet.getText());
 		viewHolder.userName.setTypeface(null, Typeface.BOLD);
 		viewHolder.user = (tweet.getUser());
@@ -88,7 +87,7 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 		System.out.println(tweet.getFavCount() + " " + tweet.getRetweetCount());
 		loader.displayImage(tweet.getUser().getUserPic(), viewHolder.userPic);
 		viewHolder.retweetCount
-				.setText(String.valueOf(tweet.getRetweetCount()));
+		.setText(String.valueOf(tweet.getRetweetCount()));
 		viewHolder.favCount.setText(String.valueOf(tweet.getFavCount()));
 		viewHolder.replypic.setTag(tweet);
 		viewHolder.retweetPic.setTag(tweet);
@@ -98,8 +97,6 @@ public class TweetListAdapter extends ArrayAdapter<Tweet> {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
-		// Return the completed view to render on screen
 		return convertView;
 	}
 }

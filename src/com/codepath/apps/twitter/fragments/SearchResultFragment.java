@@ -30,7 +30,6 @@ public class SearchResultFragment extends TimeLineFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		query = (getArguments().getString("Query"));
 		RequestParams params = new RequestParams();
@@ -55,11 +54,9 @@ public class SearchResultFragment extends TimeLineFragment {
 					List<Tweet> newTweets = Tweet.fromJsonArray(arrOfObj);
 					addAll(newTweets);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				// adapter.addAll(newTweets);
 			}
 
 		});

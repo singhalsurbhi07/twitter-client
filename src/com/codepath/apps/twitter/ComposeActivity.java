@@ -67,9 +67,7 @@ public class ComposeActivity extends Activity {
 					tvLoginHandle.setTextColor(Color.GRAY);
 					tvLoginHandle.setTextSize((float) 10.0);
 					tvLoginName.setTextSize((float) 18.0);
-
 					User user = User.fromJson(response);
-
 					tvLoginName.setText(user.getName());
 					tvLoginHandle.setText("@" + user.getScreenName());
 					ImageLoader loader = ImageLoader.getInstance();

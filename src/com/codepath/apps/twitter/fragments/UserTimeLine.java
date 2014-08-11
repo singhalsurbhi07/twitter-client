@@ -28,7 +28,6 @@ public class UserTimeLine extends TimeLineFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		id = getArguments().getString("UserID");
 		RequestParams params = new RequestParams();
@@ -48,7 +47,6 @@ public class UserTimeLine extends TimeLineFragment {
 				Log.d("JSON obj", obj.toString());
 				List<Tweet> newTweets = Tweet.fromJsonArray(obj);
 				addAll(newTweets);
-				// adapter.addAll(newTweets);
 			}
 		});
 

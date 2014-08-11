@@ -18,7 +18,6 @@ public class MentionsTimeLine extends TimeLineFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		populateData(null);
 
@@ -34,12 +33,10 @@ public class MentionsTimeLine extends TimeLineFragment {
 				Log.d("JSON mentions obj", obj.toString());
 				List<Tweet> newTweets = Tweet.fromJsonArray(obj);
 				addAll(newTweets);
-				// adapter.addAll(newTweets);
 			}
 
 			@Override
 			public void onFailure(Throwable arg0, JSONArray arg1) {
-				// TODO Auto-generated method stub
 				System.out.print(arg0);
 				System.out.println(arg1);
 				super.onFailure(arg0, arg1);

@@ -46,19 +46,7 @@ public class TimeLineActivity extends FragmentActivity {
 		actionBar.setIcon(R.drawable.ic_bird);
 		actionBar.setDisplayShowTitleEnabled(false);
 
-		// searchItem = (MenuItem) menu.findItem(R.id.miSearch);
-
-		// listView.setOnItemClickListener(new OnItemClickListener() {
-		// @Override
-		// public void onItemClick(AdapterView<?> parent, View view,
-		// int position, long id) {
-		// Intent i = new Intent(getApplicationContext(),
-		// TweetActivity.class);
-		// i.putExtra(TWEET_FORWARDING_KEY, tweets.get(position));
-		// startActivity(i);
-		// }
-		//
-		// });
+		
 	}
 
 	public void onImageClicked(View v) {
@@ -192,11 +180,9 @@ public class TimeLineActivity extends FragmentActivity {
 		});
 		b2.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				// selectedType = "all";
-
+			public void onClick(View v) {				
 				d.dismiss();
-				// tvSelectedType.setText(selectedType);
+				
 			}
 		});
 
@@ -246,8 +232,6 @@ public class TimeLineActivity extends FragmentActivity {
 				});
 		// Create the dialog
 		AlertDialog alertdialog = builder.create();
-
-		// show the alertdia
 		alertdialog.show();
 
 	}
@@ -282,15 +266,5 @@ public class TimeLineActivity extends FragmentActivity {
 		actionBar.addTab(tab2);
 	}
 
-	// public void getDataforTimeLine(RequestParams params) {
-	// client.getTimeLine(params, new JsonHttpResponseHandler() {
-	// @Override
-	// public void onSuccess(JSONArray obj) {
-	// Log.d("JSON obj", obj.toString());
-	// List<Tweet> newTweets = Tweet.fromJsonArray(obj);
-	// timelineFragment.addAll(newTweets);
-	// // adapter.addAll(newTweets);
-	// }
-	// });
-	// }
+	
 }
